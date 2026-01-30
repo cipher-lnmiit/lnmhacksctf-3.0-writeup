@@ -5,7 +5,7 @@ async function main() {
     const buyBack = await BuyBack.deploy();
     await buyBack.waitForDeployment();
 
-    console.log("BuyBack deployed at:", await buyBack.getAddress());
+    console.log("OrderShop deployed at:", await buyBack.getAddress());
     console.log("Deployment successful!!");
 }
 
