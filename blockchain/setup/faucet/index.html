@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LNMHacks CTF Faucet</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--bg: #060922;
+				--bg-accent: #10183f;
+				--card: rgba(7, 10, 31, 0.9);
+				--primary: #3ce3c5;
+				--primary-dark: #21a78e;
+				--text: #f4f6fb;
+				--muted: #7e88aa;
+				--danger: #ff6b7f;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				font-family: "Space Grotesk", "Segoe UI", sans-serif;
+				color: var(--text);
+				background: radial-gradient(circle at top, #142056, var(--bg));
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 2rem;
+			}
+
+			.card {
+				width: min(480px, 100%);
+				background: var(--card);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 20px;
+				padding: 2.5rem;
+				box-shadow: 0 25px 60px rgba(3, 4, 17, 0.65);
+				position: relative;
+				overflow: hidden;
+			}
+
+			.card::after {
+				content: "";
+				position: absolute;
+				top: -80px;
+				right: -80px;
+				width: 200px;
+				height: 200px;
+				background: rgba(60, 227, 197, 0.12);
+				filter: blur(10px);
+				border-radius: 50%;
+				pointer-events: none;
+			}
+
+			h1 {
+				margin: 0 0 0.75rem;
+				font-size: clamp(1.8rem, 3vw, 2.4rem);
+				letter-spacing: 0.04em;
+			}
+
+			p {
+				margin: 0 0 2.5rem;
+				color: var(--muted);
+				line-height: 1.5;
+			}
+
+			label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 600;
+			}
+
+			input {
+				width: 100%;
+				padding: 0.95rem 1.1rem;
+				border-radius: 12px;
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				background: rgba(14, 18, 40, 0.85);
+				color: var(--text);
+				font-size: 1rem;
+				transition: border 0.2s ease, transform 0.2s ease;
+			}
+
+			input:focus {
+				outline: none;
+				border-color: var(--primary);
+				transform: translateY(-1px);
+			}
+
+			button {
+				width: 100%;
+				margin-top: 1.5rem;
+				padding: 1rem 1.25rem;
+				border: none;
+				border-radius: 14px;
+				background: linear-gradient(120deg, var(--primary), #4affa7);
+				color: #041214;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				cursor: pointer;
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+
+			button:disabled {
+				cursor: not-allowed;
+				opacity: 0.6;
+				box-shadow: none;
+			}
+
+			button:not(:disabled):hover {
+				transform: translateY(-2px);
+				box-shadow: 0 15px 35px rgba(60, 227, 197, 0.25);
+			}
+
+			.status {
+				margin-top: 1.25rem;
+				min-height: 1.25rem;
+				font-weight: 600;
+				color: var(--text);
+			}
+
+			.status.success {
+				color: var(--primary);
+			}
+
+			.status.error {
+				color: var(--danger);
+			}
+
+			.status.loading {
+				color: var(--muted);
+			}
+
+			.response-box {
+				margin-top: 0.5rem;
+				padding: 0.85rem 1rem;
+				border-radius: 12px;
+				background: rgba(6, 9, 34, 0.85);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				font-family: "Space Grotesk", monospace;
+				font-size: 0.9rem;
+				white-space: pre-wrap;
+				word-break: break-word;
+				min-height: 2.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<main class="card">
+			<h1>LNMHacks CTF Faucet</h1>
+			<p>Drop your wallet address below and we will wire a drip of 10 ETH to get you started on-chain. Each wallet recieved drip only once, create a new wallet for a new drip.</p>
+			<form id="faucetForm">
+				<label for="address">Wallet Address</label>
+				<input
+					id="address"
+					name="address"
+					type="text"
+					placeholder="0x..."
+					autocomplete="off"
+					required
+				/>
+				<button id="dripButton" type="submit">Request Drip</button>
+				<p class="status" id="status"></p>
+				<pre class="response-box" id="responseBox" aria-live="polite">Faucet response will appear here once you submit the form.</pre>
+			</form>
+		</main>
+
+		<script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.umd.min.js"></script>
+		<script>
+		const { ethers } = window; // REQUIRED FOR V6
+
+		document.addEventListener("DOMContentLoaded", () => {
+		const form = document.getElementById("faucetForm");
+		const status = document.getElementById("status");
+		const addressInput = document.getElementById("address");
+
+		const show = (msg, cls) => {
+			status.textContent = msg;
+			status.className = `status ${cls}`;
+		};
+
+		form.addEventListener("submit", async (e) => {
+			e.preventDefault();
+
+			const address = addressInput.value.trim();
+			if (!ethers.isAddress(address)) {
+			show("Invalid address", "error");
+			return;
+			}
+
+			show("Sending transaction...", "loading");
+
+			try {
+			const res = await fetch("/faucet", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ address })
+			});
+
+			const data = await res.json();
+
+			if (data.dripStatus === "success") {
+				show("Funds sent ✔", "success");
+			} else {
+				show(data.dripStatus, "error");
+			}
+			} catch (err) {
+			show("Network error", "error");
+			}
+		});
+		});
+		</script>
+	</body>
+</html>

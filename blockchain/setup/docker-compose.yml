@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  blockchain:
+    build: .
+    ports:
+      - "8545:8545"  # Hardhat node
+      - "8345:8345"  # Faucet
+    environment:
+      - FAUCET_PRIVATE_KEY=${FAUCET_PRIVATE_KEY}
+      - FAUCET_PORT=8345
+    volumes:
+      - .:/app
+      - /app/node_modules  # Prevents overwriting container's node_modules
+    stdin_open: true
+    tty: true
+    networks: 
+      - ctf-net
+
+networks:
+  ctf-net:
+    external: true
