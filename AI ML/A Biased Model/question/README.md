@@ -1,6 +1,6 @@
 # A Biased Model, 400 points
 
-## Author: (bismuth01)[https://www.github.com/bismuth01]
+## Author: [bismuth01](https://www.github.com/bismuth01)
 
 ## Problem
 

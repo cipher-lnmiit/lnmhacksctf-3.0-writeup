@@ -1,6 +1,6 @@
 # Daisy's Store 2, 200 Points
 
-## Author: (bismuth01)[https://www.github.com/bismuth01]
+## Author: [bismuth01](https://www.github.com/bismuth01)
 
 ## Problem
 

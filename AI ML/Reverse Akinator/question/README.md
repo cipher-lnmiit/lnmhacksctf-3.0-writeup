@@ -1,6 +1,6 @@
 # Reverse Akinator, 300 points
 
-## Author: (bismuth01)[https://www.github.com/bismuth01]
+## Author: [bismuth01](https://www.github.com/bismuth01)
 
 ## Problem
 

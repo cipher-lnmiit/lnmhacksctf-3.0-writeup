@@ -1,6 +1,6 @@
 # Connect to the chain, 100 Points
 
-## Author: (bismuth01)[https://www.github.com/bismuth01]
+## Author: [bismuth01](https://www.github.com/bismuth01)
 
 ## Problem
 
