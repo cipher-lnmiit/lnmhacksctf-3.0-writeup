@@ -2,3 +2,5 @@
 
 The `BuyBack.sol` contract has a re-entrancy vulnerability which can be exploited by buying again before the state has been finalised.
 A sample exploit contract `AttackBuyBack.sol` has been given which can be deployed and the `attack` function can be called.
+
+Flag: LNMHACKS{y0u_g0t_f0r_fr33!!!}
