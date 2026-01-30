@@ -1,0 +1,17 @@
+{
+  "name": "twenty-questions-game",
+  "version": "1.0.0",
+  "description": "LLM-based 20 Questions game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "openai": "^4.20.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3"
+  }
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Questions - LLM Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .game-info {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .questions-remaining {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.3em;
+        }
+        
+        .chat-container {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background: #667eea;
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+        
+        .llm-message {
+            background: #e9ecef;
+            color: #333;
+        }
+        
+        .system-message {
+            background: #fff3cd;
+            color: #856404;
+            text-align: center;
+            max-width: 100%;
+            border: 1px solid #ffeeba;
+        }
+        
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #5568d3;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .guess-button {
+            background: #28a745;
+        }
+        
+        .guess-button:hover {
+            background: #218838;
+        }
+        
+        .start-button {
+            background: #764ba2;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .start-button:hover {
+            background: #633a85;
+        }
+        
+        .flag {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            word-break: break-all;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 20 Questions</h1>
+        <p class="subtitle">I'm thinking of an object. Can you guess it in 20 questions?</p>
+        
+        <div id="gameInfo" class="game-info hidden">
+            Questions Remaining: <span id="questionsRemaining" class="questions-remaining">20</span>
+        </div>
+        
+        <div id="chatContainer" class="chat-container"></div>
+        
+        <div id="inputArea" class="input-area hidden">
+            <input type="text" id="questionInput" placeholder="Ask a yes/no question..." />
+            <button id="askButton">Ask</button>
+        </div>
+        
+        <div class="input-area hidden" id="guessArea">
+            <input type="text" id="guessInput" placeholder="Enter your final guess..." />
+            <button id="guessButton" class="guess-button">Guess!</button>
+        </div>
+        
+        <button id="startButton" class="start-button">Start New Game</button>
+        
+        <div id="flagContainer" class="hidden"></div>
+    </div>
+
+    <script>
+        let sessionId = null;
+        let gameActive = false;
+        
+        const chatContainer = document.getElementById('chatContainer');
+        const questionInput = document.getElementById('questionInput');
+        const guessInput = document.getElementById('guessInput');
+        const askButton = document.getElementById('askButton');
+        const guessButton = document.getElementById('guessButton');
+        const startButton = document.getElementById('startButton');
+        const inputArea = document.getElementById('inputArea');
+        const guessArea = document.getElementById('guessArea');
+        const gameInfo = document.getElementById('gameInfo');
+        const questionsRemaining = document.getElementById('questionsRemaining');
+        const flagContainer = document.getElementById('flagContainer');
+        
+        function addMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}-message`;
+            messageDiv.textContent = text;
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        
+        async function startGame() {
+            try {
+                const response = await fetch('/api/start', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await response.json();
+                
+                sessionId = data.sessionId;
+                gameActive = true;
+                chatContainer.innerHTML = '';
+                flagContainer.className = 'hidden';
+                flagContainer.innerHTML = '';
+                
+                addMessage(data.message, 'system');
+                
+                inputArea.classList.remove('hidden');
+                guessArea.classList.remove('hidden');
+                gameInfo.classList.remove('hidden');
+                startButton.classList.add('hidden');
+                questionsRemaining.textContent = '20';
+                questionInput.focus();
+            } catch (error) {
+                alert('Failed to start game: ' + error.message);
+            }
+        }
+        
+        async function askQuestion() {
+            const question = questionInput.value.trim();
+            if (!question || !gameActive) return;
+            
+            addMessage(question, 'user');
+            questionInput.value = '';
+            questionInput.disabled = true;
+            askButton.disabled = true;
+            
+            try {
+                const response = await fetch('/api/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sessionId, question })
+                });
+                const data = await response.json();
+                
+                if (data.error) {
+                    addMessage(data.error, 'system');
+                    endGame();
+                } else {
+                    addMessage(data.answer, 'llm');
+                    questionsRemaining.textContent = data.questionsRemaining;
+                    
+                    if (data.questionsExhausted) {
+                        // Disable question input but keep guess option available
+                        inputArea.classList.add('hidden');
+                        addMessage('Make your final guess using the guess button below!', 'system');
+                    }
+                }
+            } catch (error) {
+                addMessage('Error: ' + error.message, 'system');
+            } finally {
+                questionInput.disabled = false;
+                askButton.disabled = false;
+                questionInput.focus();
+            }
+        }
+        
+        async function makeGuess() {
+            const guess = guessInput.value.trim();
+            if (!guess || !gameActive) return;
+            
+            guessInput.disabled = true;
+            guessButton.disabled = true;
+            
+            try {
+                const response = await fetch('/api/guess', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sessionId, guess })
+                });
+                const data = await response.json();
+                
+                if (data.error) {
+                    addMessage(data.error, 'system');
+                } else {
+                    addMessage(data.message, 'system');
+                    
+                    if (data.correct && data.flag) {
+                        flagContainer.innerHTML = `🎉 ${data.flag}`;
+                        flagContainer.classList.remove('hidden');
+                    }
+                }
+                
+                endGame();
+            } catch (error) {
+                addMessage('Error: ' + error.message, 'system');
+            }
+        }
+        
+        function endGame() {
+            gameActive = false;
+            inputArea.classList.add('hidden');
+            guessArea.classList.add('hidden');
+            startButton.classList.remove('hidden');
+            questionInput.disabled = false;
+            askButton.disabled = false;
+            guessInput.disabled = false;
+            guessButton.disabled = false;
+            guessInput.value = '';
+        }
+        
+        startButton.addEventListener('click', startGame);
+        askButton.addEventListener('click', askQuestion);
+        guessButton.addEventListener('click', makeGuess);
+        
+        questionInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') askQuestion();
+        });
+        
+        guessInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') makeGuess();
+        });
+    </script>
+</body>
+</html>
