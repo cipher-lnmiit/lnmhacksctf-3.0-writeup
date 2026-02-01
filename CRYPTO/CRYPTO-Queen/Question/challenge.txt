@@ -1,0 +1,11 @@
+Welcome to LNMHACKS Crypto Challenge!
+
+Ciphertext (Base64 + XOR):
+GQwXH0QdEgYbHhA=
+
+Hint:
+- Base64 decode first
+- XOR with a repeating key
+- Key length is 6
+
+Send the decrypted plaintext back to get the flag.
