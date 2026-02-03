@@ -1,0 +1,4 @@
+<div class="card">
+  <h2>Contact Offers Team</h2>
+  <p>Email: offers@lnmshop.in</p>
+</div>

@@ -1,0 +1,183 @@
+\# Behind the Curtains – LFI CTF
+
+
+
+\## Overview
+
+Behind the Curtains is a Docker-based Capture The Flag (CTF) challenge focused on
+
+Local File Inclusion (LFI). The challenge presents a realistic corporate-style
+
+website where one page contains a subtle vulnerability that allows attackers
+
+to read sensitive files from the server.
+
+
+
+The goal is to identify and exploit the LFI vulnerability to retrieve the flag.
+
+
+
+---
+
+
+
+\## Challenge Type
+
+\- Web Exploitation
+
+\- Local File Inclusion (LFI)
+
+\- PHP Stream Wrappers
+
+
+
+---
+
+
+
+\## Requirements
+
+\- Docker
+
+\- Docker Compose
+
+
+
+No PHP, Apache, or additional dependencies are required on the host system.
+
+
+
+---
+
+
+
+\## How to Run the Challenge
+
+
+
+Clone the repository and start the container:
+
+
+
+```bash
+
+docker-compose up --build
+
+
+
+
+The web application will be available at:http://localhost:8080
+
+
+
+Objective
+
+
+
+Explore the website, identify the vulnerable endpoint, and exploit the Local
+
+File Inclusion vulnerability to read the flag stored outside the web root.
+
+
+
+Intended Solve Path
+
+
+
+Browse the website and inspect how pages are loaded.
+
+
+
+Identify a parameter that influences server-side file handling.
+
+
+
+Leverage PHP stream wrappers to read arbitrary files.
+
+
+
+Use the php://filter wrapper to base64-encode file contents.
+
+
+
+Decode the returned base64 output to obtain the flag.
+
+
+
+Key Payload
+
+php://filter/convert.base64-encode/resource=/flag/flag.txt
+
+
+
+
+
+The payload must be base64-encoded before being sent to the vulnerable parameter.
+
+
+
+Flag
+
+
+
+The flag is stored outside the web root and is generated at container build time.
+
+
+
+Flag format:
+
+
+
+lnmhacks{cipher476169}
+
+
+
+Notes for Organizers
+
+
+
+The flag is not present in the repository.
+
+
+
+The flag is created dynamically during Docker image build.
+
+
+
+Rebuilding the container regenerates the flag environment.
+
+
+
+The challenge is fully portable and works across different operating systems.
+
+
+
+Disclaimer
+
+
+
+This project is intended for educational and CTF purposes only.
+
+Do not deploy this code on production systems.
+
+
+
+
+
+---
+
+
+
+\# ✅ COMMANDS TO ADD README TO YOUR GITHUB REPO (PowerShell ONLY)
+
+
+
+Run these \*\*exact commands\*\*, in order.
+
+
+
+```powershell
+
+cd C:\\Users\\ajayg\\lfi-ctf
+

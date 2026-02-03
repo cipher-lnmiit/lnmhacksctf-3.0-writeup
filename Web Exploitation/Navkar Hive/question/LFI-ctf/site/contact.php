@@ -1,0 +1,180 @@
+<?php
+// LFI vulnerability (intentional for CTF)
+if (isset($_GET['page'])) {
+    $file = base64_decode($_GET['page']);
+    readfile($file);
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Navkar Hive for inquiries about our eco-friendly honeycomb paper packaging solutions. Get in touch for custom quotes and bulk orders.">
+  <title>Contact Us | Navkar Hive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.php" class="logo">
+        <span class="logo-icon">🐝</span>
+        Navkar Hive
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="products.php">Products</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php" class="active">Contact</a></li>
+      </ul>
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Get In Touch</h1>
+      <p>Have questions? We're here to help you find the perfect packaging solution for your needs</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h2>Contact Information</h2>
+          <p>Reach out to us for inquiries about our products, custom orders, or any questions you may have.</p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <h4>Phone</h4>
+                <p>476169xxx</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <h4>Email</h4>
+                <p>daddy@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <h4>Address</h4>
+                <p>GB Road, Delhi</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <h4>Business Hours</h4>
+                <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <h2>Send Us a Message</h2>
+          <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us about your requirements..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Upgrade Your Packaging?</h2>
+      <p>Explore our range of premium honeycomb paper products and find the perfect solution for your business.</p>
+      <a href="products.php" class="btn btn-secondary">View Products</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.php" class="logo">
+            <span class="logo-icon">🐝</span>
+            Navkar Hive
+          </a>
+          <p>Premium honeycomb paper packaging solutions that protect your products while preserving our planet.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="contact.php">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <span>📞</span>
+              <span>476169xxx</span>
+            </div>
+            <div class="footer-contact-item">
+              <span>✉️</span>
+              <span>daddy@gmail.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <span>📍</span>
+              <span>GB Road, Delhi</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">📸</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">💼</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Navkar Hive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

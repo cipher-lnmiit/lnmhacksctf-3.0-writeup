@@ -1,0 +1,27 @@
+<?php
+include("includes/header.php");
+
+$page = $_GET['page'] ?? 'about';
+$raw_page = $_SERVER['QUERY_STRING'] ?? '';
+
+/* Weak filter to look like "security" but flawed */
+$blacklist = ['..\\', '../'];
+foreach ($blacklist as $b) {
+    if (strpos($raw_page, $b) !== false) {
+        die("Invalid page");
+    }
+}
+
+/* If user requests a php:// stream, allow it (so php://filter works).
+   Otherwise include a normal include file from includes/. */
+if (str_starts_with($page, "php://")) {
+    /* Use include on the wrapper: php://filter/.../resource=includes/secret.txt
+       This returns base64 content if server allows it (works on most setups). */
+    include($page);
+} else {
+    /* normal page includes (keep legacy behavior) */
+    include("includes/" . $page . ".php");
+}
+
+include("includes/footer.php");
+?>

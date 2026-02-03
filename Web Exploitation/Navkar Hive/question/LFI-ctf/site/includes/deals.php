@@ -1,0 +1,4 @@
+<div class="card">
+  <h2>Student Deals</h2>
+  <p>Exclusive discounts for verified students.</p>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Royal Archives</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url("/static/bg.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #ddd;
+      font-family: serif;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.6);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .panel {
+      background: rgba(10,10,10,0.85);
+      padding: 30px;
+      border: 1px solid #333;
+      width: 700px;
+    }
+    .log {
+      font-family: monospace;
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="panel">
+      <h2>Royal Verification Console</h2>
+      <p>Status: DEGRADED</p>
+      <p>Only valid royal orders are accepted.</p>
+      <div class="log">
+        [INFO] Loading archive…<br>
+        [WARN] Signature entropy low<br>
+        [INFO] Duplicate r-values detected<br>
+        [ERROR] Trust model unstable
+      </div>
+    </div>
+  </div>
+</body>
+</html>

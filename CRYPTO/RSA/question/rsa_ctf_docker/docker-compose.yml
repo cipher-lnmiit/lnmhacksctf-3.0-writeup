@@ -1,0 +1,9 @@
+﻿version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: rsa_ctf_web
+    ports:
+      - "4000:80"
+    restart: unless-stopped

@@ -1,0 +1,25 @@
+🕵️‍♂️ CTF Challenge: Find Me (JWT nbf Exploit)
+
+Welcome to Find Me, a web-based CTF challenge built for LNMI Hacks. This challenge tests players’ knowledge of JSON Web Tokens (JWT) and their ability to exploit the nbf (Not Before) field.
+
+🧠 Challenge Summary
+
+The site says:
+🚫 This site will be accessible after <future date>
+
+But… what if you could change time itself?
+
+Participants are issued a JWT with a future nbf timestamp. The server fails to validate this properly. Can you manipulate the token to access the site early and capture the flag?
+
+💻 Tech Stack
+
+Node.js (Express.js)
+
+JSON Web Tokens (jsonwebtoken)
+
+Docker-ready
+
+🚩 Objective
+
+Access the /flag route before the allowed time by modifying the JWT.
+The flag is revealed only if the server accepts a tampered token.

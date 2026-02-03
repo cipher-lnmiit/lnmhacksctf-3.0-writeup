@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Navkar Hive - our mission, vision, and commitment to providing eco-friendly packaging solutions that protect products and preserve the planet.">
+  <title>About Us | Navkar Hive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.php" class="logo">
+        <span class="logo-icon">🐝</span>
+        Navkar Hive
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="products.php">Products</a></li>
+        <li><a href="about.php" class="active">About</a></li>
+        <li><a href="contact.php">Contact</a></li>
+      </ul>
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>About Navkar Hive</h1>
+      <p>Committed to protecting products while preserving our planet through sustainable packaging solutions</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-intro">
+        <div class="about-image">🐝</div>
+        <div class="about-content">
+          <h2>Our Story</h2>
+          <p>At Navkar Hive, we are committed to providing premium quality honeycomb paper packaging solutions that protect your products while preserving our planet. Our high GSM 80 kraft paper ensures superior strength and durability for all your packaging needs.</p>
+          <p>We understand the importance of sustainable packaging in today's world. That's why our products are 100% recyclable and biodegradable, helping businesses reduce their environmental footprint without compromising on quality.</p>
+          <a href="products.php" class="btn btn-primary">Explore Our Products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Mission, Vision & Values</h2>
+        <p>The principles that guide everything we do at Navkar Hive</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Our Mission</h3>
+          <p>To provide innovative, sustainable packaging solutions that protect products during transit while minimizing environmental impact. We strive to make eco-friendly packaging accessible and affordable for businesses of all sizes.</p>
+        </div>
+        <div class="value-card">
+          <h3>Our Vision</h3>
+          <p>To become the leading provider of sustainable packaging solutions in India, inspiring a shift towards environmentally responsible practices across all industries. We envision a future where quality packaging and sustainability go hand in hand.</p>
+        </div>
+        <div class="value-card">
+          <h3>Quality Excellence</h3>
+          <p>We never compromise on quality. Our high GSM 80 kraft paper ensures exceptional strength and durability, providing reliable protection for your valuable products.</p>
+        </div>
+        <div class="value-card">
+          <h3>Environmental Responsibility</h3>
+          <p>Sustainability is at the core of everything we do. Our products are 100% recyclable and biodegradable, contributing to a cleaner, greener future for generations to come.</p>
+        </div>
+        <div class="value-card">
+          <h3>Customer Focus</h3>
+          <p>Your success is our success. We work closely with our customers to understand their unique needs and provide customized solutions that exceed expectations.</p>
+        </div>
+        <div class="value-card">
+          <h3>Innovation</h3>
+          <p>We continuously explore new technologies and materials to improve our products and services, staying ahead of industry trends to deliver the best solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Partner With Us?</h2>
+        <p>Experience the Navkar Hive difference in sustainable packaging</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3>Premium Quality</h3>
+          <p>High GSM 80 kraft paper ensures superior strength and protection for all types of products.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Eco-Conscious</h3>
+          <p>100% recyclable and biodegradable materials that reduce environmental impact.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📏</div>
+          <h3>Customizable Sizes</h3>
+          <p>Available in various sizes to meet your specific packaging requirements.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Reliable Support</h3>
+          <p>Dedicated customer support team available 24/7 to assist with your needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Make the Switch?</h2>
+      <p>Join hundreds of businesses that have already made the switch to sustainable packaging with Navkar Hive.</p>
+      <a href="contact.php" class="btn btn-secondary">Contact Us Today</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.php" class="logo">
+            <span class="logo-icon">🐝</span>
+            Navkar Hive
+          </a>
+          <p>Premium honeycomb paper packaging solutions that protect your products while preserving our planet.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="contact.php">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <span>📞</span>
+              <span>476169xxx</span>
+            </div>
+            <div class="footer-contact-item">
+              <span>✉️</span>
+              <span>daddy@gmail.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <span>📍</span>
+              <span>GB Road, Delhi</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">📸</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">💼</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Navkar Hive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

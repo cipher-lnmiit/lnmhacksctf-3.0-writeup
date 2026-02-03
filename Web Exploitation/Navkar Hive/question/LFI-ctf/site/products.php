@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse our collection of premium honeycomb paper rolls - eco-friendly packaging solutions in various sizes for all your business needs.">
+  <title>Our Products | Navkar Hive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.php" class="logo">
+        <span class="logo-icon">🐝</span>
+        Navkar Hive
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="products.php" class="active">Products</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact</a></li>
+      </ul>
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Products</h1>
+      <p>Premium honeycomb paper rolls engineered for exceptional strength and eco-friendly packaging</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Durable Protection, Sustainable Solutions</h2>
+        <p>Choose from our range of high-quality honeycomb paper rolls for all your packaging needs</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Honeycomb Paper Roll 15" x 100m</h3>
+            <p>Premium honeycomb paper roll with superior strength and durability for large-scale packaging.</p>
+            <div class="product-price">₹549</div>
+            <a href="contact.php" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Honeycomb Paper Roll 15" x 50m</h3>
+            <p>Perfect for medium-scale packaging requirements with excellent protection.</p>
+            <div class="product-price">₹379</div>
+            <a href="contact.php" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Honeycomb Paper Roll 12" x 100m</h3>
+            <p>Ideal for standard packaging and protection needs across various applications.</p>
+            <div class="product-price">₹460</div>
+            <a href="contact.php" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Honeycomb Paper Roll 12" x 50m</h3>
+            <p>Compact roll for smaller shipping and storage requirements.</p>
+            <div class="product-price">₹370</div>
+            <a href="contact.php" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Honeycomb Paper Roll 18" x 100m</h3>
+            <p>Extra-wide roll for wrapping large items and industrial packaging.</p>
+            <div class="product-price">₹699</div>
+            <a href="contact.php" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Honeycomb Paper Roll 18" x 50m</h3>
+            <p>Wide format roll for furniture and large equipment protection.</p>
+            <div class="product-price">₹499</div>
+            <a href="contact.php" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Honeycomb Paper Roll 10" x 50m</h3>
+            <p>Compact size perfect for small businesses and craft applications.</p>
+            <div class="product-price">₹289</div>
+            <a href="contact.php" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Custom Size Honeycomb Roll</h3>
+            <p>Contact us for custom dimensions tailored to your specific requirements.</p>
+            <div class="product-price">Contact Us</div>
+            <a href="contact.php" class="btn btn-primary">Get Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Key Benefits</h2>
+        <p>What makes our honeycomb paper the perfect choice for your packaging needs</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚖️</div>
+          <h3>Lightweight</h3>
+          <p>Reduces shipping costs while providing excellent protection. Easy to handle and store.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3>Machine Compatible</h3>
+          <p>Works seamlessly with automated packaging machines for efficient operations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Versatile Protection</h3>
+          <p>Suitable for electronics, glassware, furniture, and everything in between.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">♻️</div>
+          <h3>100% Recyclable</h3>
+          <p>Completely recyclable and biodegradable, contributing to a sustainable future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Need Custom Packaging Solutions?</h2>
+      <p>Contact us today to discuss bulk orders and custom sizes for your business.</p>
+      <a href="contact.php" class="btn btn-secondary">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.php" class="logo">
+            <span class="logo-icon">🐝</span>
+            Navkar Hive
+          </a>
+          <p>Premium honeycomb paper packaging solutions that protect your products while preserving our planet.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="contact.php">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <span>📞</span>
+              <span>476169xxx</span>
+            </div>
+            <div class="footer-contact-item">
+              <span>✉️</span>
+              <span>daddy@gmail.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <span>📍</span>
+              <span>GB Road, Delhi</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">📸</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">💼</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Navkar Hive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

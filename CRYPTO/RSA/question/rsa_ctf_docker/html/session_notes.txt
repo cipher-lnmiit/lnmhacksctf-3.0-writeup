@@ -1,0 +1,19 @@
+﻿Session #CERT-THERAPY
+
+Combined footprint (N):
+  0xb2da8b2f1443f90496ea4c3a9e24886b4c3dc39b4fb08188763be17706d5967a7a4731d22df3146dd5af13e9d14bf7cdbbd36d68376bda9fc469d8586e4e27b98be6b686408019a6950f98310e48e772f80f44d36a46d0c97eedbc6f1e832bd00faa116c904b94f237cb732f484bdccb9fc321171e7865d1a872365832d8667bd206436b785fe3217b4c2030bdce9cf650c8f10bc3d64cd75967771bb6906b424c6fdfd29e633afe420b5b0c04d4ee5452561d058b74da42fb88164164aebdcce7961ce73216dbab6397cdd26d5ab3af4160ee0c2aee6637bf6261acfa99b6c8117840524eb7e2efb7df841683d1dc8fac4255cf3dac2f4d271fc245184b6055
+
+Points of disagreement (hardened delta):
+  0x2a91516f48e760a206ff8eee3d35369fa7bbb6d3564cafff4604aac260160176de72103dabd503ed7ffc5e7df3412375e2ef0cf17d559c884759e6171eeef0ee29c3e461618ccceda4837ebb17f73f04a1fba85f4f913cc09232b9eda28f6d7225835395ce53a80be18cae02790c9ee13fb8ff5558ee0cf9158ae812af8f
+
+Public exponent:
+  e = 65537
+
+Note:
+  - The disagreement data has been intentionally transformed (bit-reversed, lowest 16 bits removed).
+  - Both participants are odd.
+  - The final recording is an RSA-encrypted blob (recording.bin).
+  - Flag is inside recording.bin; it is not present in the repo in cleartext.
+
+Ciphertext (base64 preview):
+  D5ye8grk/OSFw8jNwOzec6NGfViFVV1JIR4SdS1iPcml3Fk0CbZsvJE4T8rvCkGsafXWqIApCvBG4kS5y/T4JckZpWEeHZh183SC2KLAcRT+vI5sTC44Sej/vNMKnDsYjyrkfXyM+w8NzrV6L/rdrsPRk4OxN3K9q6D5ZSYZWCqb9zmhAoVfliisr5WoxaNlhUc/f156WoUt3iMcerGcGOTuX07o5JOPvQ5YLKXpht2HdpoFReZyDWa109PXz7d2vYYdlXvX311Gn2lGJknd2Z+0ZxsUDP5nU/htD2CXwce4M6OW6Eh+BjNoqvYX5HiC+YSanGNQV7pCzR4XbqmEXg==

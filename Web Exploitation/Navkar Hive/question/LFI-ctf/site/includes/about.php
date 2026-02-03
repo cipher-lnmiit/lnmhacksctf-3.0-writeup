@@ -1,0 +1,4 @@
+<div class="card">
+  <h2>About Our Offers</h2>
+  <p>We use modular pages to manage offers efficiently.</p>
+</div>

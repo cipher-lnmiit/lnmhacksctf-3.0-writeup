@@ -1,0 +1,173 @@
+export default function Page() {
+  const scriptText = `English-Vinglish.
+
+Rohan, A true lover.
+Ananya,A beautiful girl.
+Oggy, a cartoon of cartoon network.
+Harry, The one who always bark.
+
+
+                    Act I: Loosing control over tounge.
+
+                    Scene I: Harry started barking.
+
+[Enter Harry and Rohan]
+
+Harry:
+ You lying stupid fatherless big smelly disgusting coward! You are the product
+ of thyself and a pig! You are the product of yourself and a happy flower!
+ You are the sum of yourself and a big smelly disgusting rotten fatherless pig!  
+ You are the sum of yourself and a happy peaceful little flower! 
+
+ You are an amazing beautiful brave charming gentle healthy pony!
+ You are the sum of yourself and a beautiful little mighty gentle peaceful rose!
+ You are the sum of thyself and a plum! 
+
+ You are a peaceful noble brave amazing gentle healthy king!
+ You are the sum of yourself and a beautiful little mighty gentle peaceful rose!
+ You are the sum of thyself and a plum! You are the sum of thyself and a cute flower!
+
+
+ You are a trustworthy handsome fair fine smooth gentle mighty lord!
+ You are the sum of thyself and a lying miserable stinking sorry bastard!
+ You are the sum of thyself and a stupid stinking wolf! You are the sum of yourself
+ and a pig! 
+
+ You are a dirty misused miserable rotten snotty worried vile leech!
+ You are the product of thyself and a toad!
+ You are the sum of yourself and a stupid stinking snotty infected goat!
+ You are the sum of yourself and a sweet warm pony! You are the sum of thyself and a pig!
+
+
+[Exit Rohan]
+
+                    Scene II: Harry kept barking.
+
+[Enter Ananya]
+
+Harry:
+ Thou art as brave as the sum of your fat little stuffed misused dusty
+ old rotten codpiece and a beautiful fair warm peaceful sunny summer's day. 
+ You are the difference between yourself and a peaceful pretty proud rich smooth plum!
+ You are the sum of yourself and a warm happy summer's day! You are the sum of
+ thyself and a rose! You are the product of thyself and a pig!
+
+
+[Exit Ananya]
+
+
+                    Act II: Loosinng control over mind.
+
+                    Scene I: Harry and Rohan conversation.
+
+[Enter Rohan]
+
+Harry:
+ Thou art the product of the cube of a brave lord and the square of the sum of 
+ a brave lord and a flower! 
+
+                    Scene II: Harry continues speaking.
+
+Harry:
+ Thou art the sum of a flower and the product of a brave lord and the square of 
+ the sum of a beautiful rich king and a flower! 
+
+                    Scene III: Harry continues speaking.
+
+Harry:
+ Thou art the product of the square of a brave lord and the cube of the sum of 
+ a brave lord and a flower! 
+
+                    Scene IV: Harry continues speaking.
+
+Harry:
+ Thou art the product of the square of a beautiful rich king and the sum of 
+ a brave lord and a flower! 
+
+                    Scene V: Harry continues speaking.
+
+Harry:
+ Thou art the difference between the square of the product of a brave lord and 
+ the sum of a beautiful rich king and a flower and the sum of a beautiful rich 
+ king and a flower! 
+
+                    Scene VI: Harry continues speaking.
+
+Harry:
+ Thou art the sum of thyself and a beautiful rich king! 
+
+                    Scene VII: Harry continues speaking.
+
+Harry:
+ Thou art the square of the sum of a beautiful rich king and the sum of a brave lord 
+ and a flower! 
+
+                    Scene VIII: Harry continues speaking.
+
+Harry:
+ Thou art the product of the square of a beautiful rich king and the sum of a 
+ beautiful rich king and the sum of a brave lord and a flower! 
+
+                    Scene IX: Harry continues speaking.
+
+Harry:
+ Thou art the difference between thyself and the cube of a brave lord! 
+
+                    Scene X: Harry continues speaking.
+
+Harry:
+ Thou art the sum of a flower and the product of a brave lord and the square of 
+ the sum of a beautiful rich king and a flower! 
+
+                    Scene XI: Harry continues speaking.
+
+Harry:
+ Thou art the product of a brave lord and the sum of thyself and the sum of 
+ a beautiful rich king and a brave lord! 
+
+[Exit Rohan]
+
+
+                    Act III: The Final words.
+
+                    Scene I: Harry last words.
+
+[Enter Rohan]
+
+Harry:
+ You are the cube of the sum of a beautiful rich king and a flower! 
+
+[Exeunt]`;
+
+  return (
+    <div 
+      className="w-full min-h-screen flex items-center justify-center p-4"
+      style={{
+        backgroundImage: 'url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kwZ9vIUkNq0MUke3D1uyoTOuECtU71.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Dark translucent overlay */}
+      <div className="absolute inset-0 bg-black/30" />
+      
+      {/* Text container */}
+      <div className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto px-6 py-8">
+        <div 
+          className="font-mono text-sm leading-relaxed p-8 rounded-lg backdrop-blur-sm"
+          style={{
+            backgroundColor: 'rgba(20, 20, 30, 0.85)',
+            color: '#e0d5c8',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+            border: '1px solid rgba(224, 213, 200, 0.2)',
+            whiteSpace: 'pre-wrap',
+            wordWrap: 'break-word',
+          }}
+        >
+          {scriptText}
+        </div>
+      </div>
+    </div>
+  )
+}
